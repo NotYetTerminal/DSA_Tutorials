@@ -71,16 +71,16 @@ class Heap:
         # organises values to print out
         for index in range(1, self.last_index + 1):
             if index == current_multiple:
-                print_lines_list.append([' ', str(self.values[index])])
+                print_lines_list.append([" ", str(self.values[index])])
                 current_multiple *= 2
                 counter = counter * 2 + 1
             else:
                 # add to last line
-                print_lines_list[-1].append(' ')
+                print_lines_list[-1].append(" ")
                 print_lines_list[-1].append(self.values[index])
             if longest_number_length < len(str(self.values[index])):
                 longest_number_length = len(str(self.values[index]))
-        
+
         counter //= 2
         other_counter: int = len(print_lines_list)
         for line in print_lines_list:
@@ -88,35 +88,44 @@ class Heap:
             if len(line) != 2:
                 left: bool = True
                 for index in range(len(line)):
-                    if line[index] == ' ':
+                    if line[index] == " ":
                         if index == 0:
-                            print(' ' * (counter * longest_number_length - (2 ** other_counter)), end='')
+                            print(
+                                " "
+                                * (
+                                    counter * longest_number_length
+                                    - (2**other_counter)
+                                ),
+                                end="",
+                            )
                         else:
-                            print(' ' * (counter * longest_number_length), end='')
+                            print(" " * (counter * longest_number_length), end="")
                     else:
-                        print(' ' * (longest_number_length - 1), end='')
+                        print(" " * (longest_number_length - 1), end="")
                         if left:
-                            print('/', end='')
+                            print("/", end="")
                         else:
-                            print('\\', end='')
+                            print("\\", end="")
                         left = not left
                 print()
-            
+
             # prints out values
             for index in range(len(line)):
-                if line[index] == ' ':
+                if line[index] == " ":
                     if index == 0:
-                        print(' ' * (counter * longest_number_length - (2 ** other_counter)), end='')
+                        print(
+                            " "
+                            * (counter * longest_number_length - (2**other_counter)),
+                            end="",
+                        )
                     else:
-                        print(' ' * (counter * longest_number_length), end='')
+                        print(" " * (counter * longest_number_length), end="")
                 else:
-                    print(' ' * (longest_number_length - len(str(line[index]))), end='')
-                    print(line[index], end='')
+                    print(" " * (longest_number_length - len(str(line[index]))), end="")
+                    print(line[index], end="")
             print()
             counter //= 2
             other_counter -= 1
-
-
 
 
 def main():
