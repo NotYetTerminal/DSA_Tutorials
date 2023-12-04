@@ -24,8 +24,6 @@ class Heap:
 
     # increases array size then inserts the new value, and up heaps
     def insert(self, x: int) -> None:
-        if x == 51:
-            pass
         self.last_index += 1
         if self.last_index >= len(self.values):
             self.increase_array_size((len(self.values) * 2))
@@ -210,7 +208,6 @@ def main():
                 break
             case _:
                 print("Input numbers 1 - 5!")
-
 
 
 if __name__ == "__main__":
