@@ -161,7 +161,7 @@ def main():
     heap: Heap =  initialise_sample_heap()
     
     print("Heap printed as an array:")
-    print(heap.values)
+    print(heap.values[:heap.last_index + 1])
     print("Heap printed graphically:")
     heap.pretty_print_heap()
 
@@ -201,7 +201,7 @@ def main():
                 print("Smallest deleted.")
             case "5":
                 print("Heap printed as an array:")
-                print(heap.values)
+                print(heap.values[:heap.last_index + 1])
                 print("Heap printed graphically:")
                 heap.pretty_print_heap()
             case "6":
