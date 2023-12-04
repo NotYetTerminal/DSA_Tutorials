@@ -11,16 +11,21 @@ class Heap:
 
     # up heaps value in given index
     def up_heap(self, x: int):
-        parent_index = self.find_parent(x)
-        while parent_index != 0 and self.values[x] > self.values[parent_index]:
+        parent_index: int = self.find_parent(x)
+        current_index: int = x
+        while parent_index != 0 and self.values[current_index] > self.values[parent_index]:
             # swapping values
-            self.values[parent_index], self.values[x] = (
-                self.values[x],
+            self.values[parent_index], self.values[current_index] = (
+                self.values[current_index],
                 self.values[parent_index],
             )
+            current_index = parent_index
+            parent_index = self.find_parent(current_index)
 
     # increases array size then inserts the new value, and up heaps
     def insert(self, x: int) -> None:
+        if x == 51:
+            pass
         self.last_index += 1
         if self.last_index >= len(self.values):
             self.increase_array_size((len(self.values) * 2))
@@ -62,6 +67,7 @@ class Heap:
 
     # prints the heap graphically
     def pretty_print_heap(self) -> None:
+        print("INFO: The graphical print may break when there are many values in the heap, or the values are too big.")
         print_lines_list: list = []
         # keeps track of multiples of 2
         current_multiple: int = 1
@@ -143,7 +149,9 @@ def main():
     heap.insert(4)
     heap.insert(2)
     heap.insert(10)
+    heap.pretty_print_heap()
     heap.insert(51)
+    heap.pretty_print_heap()
     heap.insert(20)
     heap.insert(5)
     heap.insert(15)
