@@ -133,8 +133,7 @@ class Heap:
             counter //= 2
             other_counter -= 1
 
-
-def main():
+def initialise_sample_heap() -> Heap:
     heap: Heap = Heap()
     heap.insert(30)
     heap.insert(20)
@@ -143,27 +142,75 @@ def main():
     heap.insert(16)
     heap.insert(22)
     heap.insert(10)
-    heap.insert(11)
+    heap.insert(3)
+    heap.insert(8)
     heap.insert(4)
     heap.insert(2)
-    heap.insert(4)
-    heap.insert(2)
-    heap.insert(10)
-    heap.pretty_print_heap()
+    heap.insert(19)
     heap.insert(51)
-    heap.pretty_print_heap()
-    heap.insert(20)
-    heap.insert(5)
-    heap.insert(15)
-    heap.insert(16)
-    heap.insert(4)
-    heap.insert(12)
-    heap.insert(10)
+    heap.insert(40)
+    heap.insert(13)
+    heap.insert(56)
+    heap.insert(60)
     heap.insert(11)
+    heap.insert(72)
+    heap.insert(61)
+    heap.insert(82)
+    return heap
+
+
+def main():
+    heap: Heap =  initialise_sample_heap()
+    
+    print("Heap printed as an array:")
     print(heap.values)
-    heap.delete_small()
+    print("Heap printed graphically:")
     heap.pretty_print_heap()
-    pass
+
+    while True:
+        print()
+        print("1 - Insert Number")
+        print("2 - Find Parent of Index")
+        print("3 - Find Children of Index")
+        print("4 - Delete Smallest")
+        print("5 - Print Heap")
+        print("6 - Exit")
+
+        input_number: str = input("Select an number: ")
+
+        match input_number:
+            case "1":
+                number_in: str = input("Input number to insert: ")
+                if number_in.isdigit():
+                    heap.insert(int(number_in))
+                    print("Number inserted.")
+                else:
+                    print("Not a number put in!")
+            case "2":
+                number_in: str = input("Input index to get parent: ")
+                if number_in.isdigit():
+                    print(f"Parent index: {heap.find_parent(int(number_in))}")
+                else:
+                    print("Not a number put in!")
+            case "3":
+                number_in: str = input("Input index to get children: ")
+                if number_in.isdigit():
+                    print(f"Children indexes: {heap.find_child(int(number_in))}")
+                else:
+                    print("Not a number put in!")
+            case "4":
+                heap.delete_small()
+                print("Smallest deleted.")
+            case "5":
+                print("Heap printed as an array:")
+                print(heap.values)
+                print("Heap printed graphically:")
+                heap.pretty_print_heap()
+            case "6":
+                break
+            case _:
+                print("Input numbers 1 - 5!")
+
 
 
 if __name__ == "__main__":
