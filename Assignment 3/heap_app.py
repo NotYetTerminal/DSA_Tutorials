@@ -133,7 +133,7 @@ class Heap:
 
 def initialise_sample_heap() -> Heap:
     heap: Heap = Heap()
-    heap.values = [0, 82, 72, 40, 56, 61, 22, 30, 20, 15, 60, 13, 5, 19, 10, 2, 3, 15, 8, 11, 4, 35]
+    heap.values = [0, 82, 72, 40, 56, 61, 22, 30, 20, 15, 60, 35, 5, 19, 10, 2, 3, 15, 8, 11, 4, 13]
     heap.last_index = 21
     return heap
 
