@@ -133,33 +133,13 @@ class Heap:
 
 def initialise_sample_heap() -> Heap:
     heap: Heap = Heap()
-    heap.insert(30)
-    heap.insert(20)
-    heap.insert(5)
-    heap.insert(15)
-    heap.insert(16)
-    heap.insert(22)
-    heap.insert(10)
-    heap.insert(3)
-    heap.insert(8)
-    heap.insert(4)
-    heap.insert(2)
-    heap.insert(19)
-    heap.insert(51)
-    heap.insert(40)
-    heap.insert(13)
-    heap.insert(56)
-    heap.insert(60)
-    heap.insert(11)
-    heap.insert(72)
-    heap.insert(61)
-    heap.insert(82)
+    heap.values = [0, 82, 72, 40, 56, 61, 22, 30, 20, 15, 60, 13, 5, 19, 10, 2, 3, 15, 8, 11, 4, 35]
+    heap.last_index = 21
     return heap
 
 
 def main():
     heap: Heap =  initialise_sample_heap()
-    
     print("Heap printed as an array:")
     print(heap.values[:heap.last_index + 1])
     print("Heap printed graphically:")
